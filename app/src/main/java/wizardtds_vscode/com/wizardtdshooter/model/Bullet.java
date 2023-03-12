@@ -29,7 +29,7 @@ public class Bullet extends GameObject {
 			GameObject tempObject = handler.object.get(i);
 
 			// distrugge il proiettile se tocca un blocco
-			if (tempObject.getId() == ID.Block && !Window.magicShot) {
+			if (tempObject.getId() == ID.Block && !Window.magicBullet) {
 				if (this.getBounds().intersects(tempObject.getBounds())) {
 					handler.removeObject(this);
 				}

@@ -10,7 +10,8 @@ public class Window {
 	public static final String operatingSystem = System.getProperty("os.name");
 	public static int hp = 80;
 	public static int ammo = 30;
-	public static boolean magicShot = false;
+	public static boolean magicBullet = false;
+	public static int magicShotCounter = 0;
 
 	public Window(int width, int height, String title, Game game) {
 		JFrame frame = new JFrame(title);
@@ -26,7 +27,6 @@ public class Window {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Game game = new Game();
 		new Window(WIDTH, HEIGHT, "Wizard Top Down Shooter", game);
 

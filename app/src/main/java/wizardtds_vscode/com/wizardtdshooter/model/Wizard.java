@@ -6,14 +6,17 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JOptionPane;
 
+import org.w3c.dom.events.MouseEvent;
+
 import wizardtds_vscode.com.wizardtdshooter.controller.Handler;
+import wizardtds_vscode.com.wizardtdshooter.controller.MouseInput;
 import wizardtds_vscode.com.wizardtdshooter.controller.SpriteSheet;
 import wizardtds_vscode.com.wizardtdshooter.view.Window;
 
 public class Wizard extends GameObject {
 
 	private Handler handler;
-	private BufferedImage wizard_image;
+	private BufferedImage wizardImage;
 	private int speed = 3;
 	private int width = 32;
 	private int height = 48;
@@ -21,7 +24,7 @@ public class Wizard extends GameObject {
 	public Wizard(int x, int y, ID id, Handler handler, SpriteSheet ss) {
 		super(x, y, id, ss);
 		this.handler = handler;
-		this.wizard_image = ss.grabImage(1, 1, 32, 48);
+		this.wizardImage = ss.grabImage(1, 1, 32, 48);
 	}
 
 	@Override
@@ -70,9 +73,10 @@ public class Wizard extends GameObject {
 				}
 			}
 			// Collision with MagicShot ( Wizard gets magic shot)
-			if (tempObject.getId() == ID.Magicshot) {
+			if (tempObject.getId() == ID.MagicBullet) {
 				if (this.getBounds().intersects(tempObject.getBounds())) {
-					Window.magicShot = true;
+					Window.magicBullet = true;
+					System.out.println("gained 10 magic shots..");
 					handler.removeObject(tempObject);
 				}
 			}
@@ -104,7 +108,7 @@ public class Wizard extends GameObject {
 
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(this.wizard_image, x, y, null);
+		g.drawImage(this.wizardImage, x, y, null);
 	}
 
 	@Override

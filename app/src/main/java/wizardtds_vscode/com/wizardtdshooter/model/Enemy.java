@@ -3,6 +3,10 @@ package wizardtds_vscode.com.wizardtdshooter.model;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 import wizardtds_vscode.com.wizardtdshooter.controller.Handler;
 import wizardtds_vscode.com.wizardtdshooter.controller.SpriteSheet;
@@ -22,6 +26,7 @@ public class Enemy extends GameObject {
 		this.handler = handler;
 		this.isMoving = false;
 		this.enemy_image = ss.grabImage(4, 1, 32, 32);
+
 	}
 
 	@Override

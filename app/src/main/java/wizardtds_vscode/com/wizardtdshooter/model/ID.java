@@ -12,7 +12,7 @@ public enum ID {
 	Crate,
 	Bullet,
 	Enemy,
-	Magicshot,
+	MagicBullet,
 	Door;
 
 }

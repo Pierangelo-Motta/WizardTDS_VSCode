@@ -6,13 +6,13 @@ import java.awt.image.BufferedImage;
 
 import wizardtds_vscode.com.wizardtdshooter.controller.SpriteSheet;
 
-public class MagicShot extends GameObject {
+public class MagicBullet extends GameObject {
 
-	private BufferedImage magicShot_image;
+	private BufferedImage magicBulletImage;
 
-	public MagicShot(int x, int y, ID id, SpriteSheet ss) {
+	public MagicBullet(int x, int y, ID id, SpriteSheet ss) {
 		super(x, y, id, ss);
-		this.magicShot_image = ss.grabImage(3, 2, 32, 32);
+		this.magicBulletImage = ss.grabImage(3, 2, 32, 32);
 	}
 
 	@Override
@@ -22,7 +22,7 @@ public class MagicShot extends GameObject {
 
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(this.magicShot_image, x, y, null);
+		g.drawImage(this.magicBulletImage, x, y, null);
 	}
 
 	@Override

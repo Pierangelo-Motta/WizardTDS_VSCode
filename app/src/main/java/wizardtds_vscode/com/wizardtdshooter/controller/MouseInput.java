@@ -15,7 +15,6 @@ public class MouseInput extends MouseAdapter {
 	private Camera camera;
 	private SpriteSheet ss;
 	private Audio audio;
-	private int magicShotCounter = 0;
 
 	public MouseInput(Handler handler, Camera camera, SpriteSheet ss) {
 		this.handler = handler;
@@ -25,11 +24,12 @@ public class MouseInput extends MouseAdapter {
 	}
 
 	public void mousePressed(MouseEvent e) {
-		if (Window.magicShot) {
-			magicShotCounter++;
+		if (Window.magicBullet) {
+			Window.magicShotCounter++;
 		}
-		if (magicShotCounter > 10) {
-			Window.magicShot = false;
+		if (Window.magicShotCounter > 10) {
+			Window.magicBullet = false;
+			Window.magicShotCounter = 0;
 		}
 		int mx = (int) (e.getX() + camera.getX()); // getting mouse x position
 		int my = (int) (e.getY() + camera.getY()); // getting mouse y position

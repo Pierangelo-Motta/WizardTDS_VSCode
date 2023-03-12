@@ -22,7 +22,7 @@ import wizardtds_vscode.com.wizardtdshooter.model.Crate;
 import wizardtds_vscode.com.wizardtdshooter.model.Door;
 import wizardtds_vscode.com.wizardtdshooter.model.Enemy;
 import wizardtds_vscode.com.wizardtdshooter.model.ID;
-import wizardtds_vscode.com.wizardtdshooter.model.MagicShot;
+import wizardtds_vscode.com.wizardtdshooter.model.MagicBullet;
 import wizardtds_vscode.com.wizardtdshooter.model.Wizard;
 
 public class Game extends JPanel implements ActionListener {
@@ -56,6 +56,7 @@ public class Game extends JPanel implements ActionListener {
 		this.addKeyListener(new KeyInput(handler));
 		this.addMouseListener(new MouseInput(handler, camera, ss));
 		this.start();
+
 	}
 
 	private void start() {
@@ -144,9 +145,7 @@ public class Game extends JPanel implements ActionListener {
 				int green = (pixel >> 8) & 0xff;
 				int blue = (pixel) & 0xff;
 
-				// System.out.println(pixel + "R" + red + "G" + green + "B" + blue);
-
-				if (red == 255 && blue != 255 && green != 255) {
+				if (red == 255 && blue == 0 && green == 0) {
 					handler.addObject(new Block(xx * 32, yy * 32, ID.Block, ss));
 				}
 				if (green == 255 && blue != 255 && red != 255) {
@@ -162,9 +161,8 @@ public class Game extends JPanel implements ActionListener {
 					handler.addObject(new Door(xx * 32, yy * 32, ID.Door, ss));
 				}
 				if (blue == 0 && green == 216 && red == 255) {
-					handler.addObject(new MagicShot(12 * 32, 12 * 32, ID.Magicshot, ss));
+					handler.addObject(new MagicBullet(xx * 32, yy * 32, ID.MagicBullet, ss));
 				}
-
 			}
 		}
 	}
